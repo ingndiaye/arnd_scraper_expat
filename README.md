@@ -21,4 +21,4 @@ Elle permet aussi de télécharger des données existantes sur ces produits.
 
 ##  Installation
 Clonez le dépôt :
-   git clone https://github.com/ingndiaye/arnd_webscraping.git
+   git clone https://github.com/ingndiaye/arnd_scraper_expat.git.git
