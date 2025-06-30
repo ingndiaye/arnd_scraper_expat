@@ -7,6 +7,7 @@ import numpy as np
 import streamlit as st
 import streamlit.components.v1 as components 
 from selenium.common.exceptions import WebDriverException
+import undetected_chromedriver as uc
 
 options = webdriver.ChromeOptions()
 options.add_argument("--headless")
@@ -17,8 +18,8 @@ options.add_argument("--disable-dev-shm-usage")
 # définir l'option d'utiliser chrome en mode headless ( utiliser afin de lancer le script en background)
 # options.add_argument("--headless=new")  
 try: 
-    driver = webdriver.Chrome(options=options)
-    driver_in = webdriver.Chrome(options=options) 
+    driver = uc.Chrome(options=options)
+    driver_in = uc.Chrome(options=options) 
 except WebDriverException as e:
     st.error("Impossible de démarrer le navigateur Chrome. Cette fonctionnalité ne fonctionne peut-être pas sur Streamlit Cloud.")
     st.stop()
