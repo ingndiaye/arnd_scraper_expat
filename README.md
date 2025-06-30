@@ -5,10 +5,10 @@ Elle permet aussi de télécharger des données existantes sur ces produits.
 
 ##  Fonctionnalités
 
--  Scraping en direct avec Selenium (produits par catégorie)
--  Tableaux de bord avec visualisation 
--  Téléchargement de données CSV
--  Formulaire d’évaluation intégré (via KoboToolbox) 
+- Scraping en direct avec Selenium (produits par catégorie)
+- Tableaux de bord avec visualisation 
+- Téléchargement de données CSV
+- Formulaire d’évaluation intégré (via KoboToolbox) 
 
 ##  Technologies utilisées
 
