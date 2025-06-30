@@ -8,21 +8,24 @@ import streamlit as st
 import streamlit.components.v1 as components 
 from selenium.common.exceptions import WebDriverException
 import undetected_chromedriver as uc
+import os
 
-options = webdriver.ChromeOptions()
-options.add_argument("--headless")
-options.add_argument("--no-sandbox")
-options.add_argument("--disable-dev-shm-usage")
+def get_driver():
+    options = uc.ChromeOptions()
+    options.add_argument("--headless")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    
+    if os.path.exists("/app/.chromedriver/bin/chromedriver"):
+        return uc.Chrome(
+            driver_executable_path="/app/.chromedriver/bin/chromedriver",
+            options=options
+        )
+    return uc.Chrome(options=options)
 
-# options = webdriver.ChromeOptions() 
-# définir l'option d'utiliser chrome en mode headless ( utiliser afin de lancer le script en background)
-# options.add_argument("--headless=new")  
-try: 
-    driver = uc.Chrome(options=options)
-    driver_in = uc.Chrome(options=options) 
-except WebDriverException as e:
-    st.error("Impossible de démarrer le navigateur Chrome. Cette fonctionnalité ne fonctionne peut-être pas sur Streamlit Cloud.")
-    st.stop()
+driver = get_driver()
+driver_in = get_driver()
+
 
 st.markdown("""<style>body {background-color: #0f926d;} .stApp { background-color: #0f926d; } </style>""", unsafe_allow_html=True)
 st.markdown("<h5 style='text-align: center; color: white';>🕷️ SCRAPING SUR EXPAT-DAKAR AVEC SELENIUM ET WEB-SCRAPER 🕷️</h5>", unsafe_allow_html=True) 
